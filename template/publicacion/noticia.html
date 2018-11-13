@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+<style>
+    body{
+        gra
+    }
+    .header{
+        background-color: #4285F4;
+        box-shadow: 1px 2px 1px grey;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+    }
+    .header-1{
+        margin: auto;
+        background-color: black;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .header-1 div{
+        margin: auto;
+        float: right;
+    }
+    .header-1 ul{
+        padding: 0px;
+        display: inline;   
+    }
+    .header-1 li{
+        margin: auto;
+        padding: 0px;
+        display: inline;
+    }
+    .header-1 a{
+        margin: auto;
+        padding:0px;
+        display:inline;
+        text-decoration: none;
+        color: whitesmoke;
+    }
+    .header-2{
+        margin:auto;
+        border:none;
+    }
+    .header-23{
+        float: none;
+        margin: auto;
+        border:none;
+    }
+    .header-23 div{
+        margin: auto;
+        border: none;
+        border-radius: 5px;
+    }
+    .header-23 img{
+        margin: auto;
+        padding:0px;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .header-23-1{
+    }
+    .header-23-2{
+        float: right;
+        margin: auto;
+    }
+    .header-23-2 p{
+        display: inline;
+    }
+    .secundario-center{
+        max-height: 700px;
+        overflow-y: auto;
+        border: none;
+        -ms-overflow-style: none;
+    }
+    .secundario-center-titulo{
+        background-color: rgba(240, 248, 255, 0.534);
+        box-shadow: 1px 2px 1px gray;
+        border: none;
+        text-align: justify;
+        text-justify: inter-word;
+        text-indent: 10px;
+        border-radius: 7px;
+    }
+    .secundario-center-contenedor{
+        padding: 0px;
+        border: none;
+    }
+    .contenedor-subtitulo{
+        padding: 0px;
+        border: none;
+        text-align: center;
+    }
+    .contenedor-imagen{
+        padding: 0px;
+        position: relative;
+        display: inline;
+        border: none;
+    }
+    .cont{
+        margin: auto;
+        float: none;
+        width: 550px;
+    }
+    .contenedor-imagen img{
+        margin: auto;
+        width: 100%;
+        max-width: 550px;
+        min-width: 550px;
+        border-radius: 5px;
+        align-content: center;
+    }
+    .contenedor-texto{
+        border: none;
+    }
+    .contenedor-texto p{
+        text-align: justify;
+        text-justify: inter-word;
+        white-space: normal;
+        text-indent: 50px;
+    }
+    .complemento{
+        height: 400px;
+        border: none;
+    }
+</style>
+{% endblock %}
+{% block contenido %}
+<div class=" header col-n-12">
+    <div class="header-1 col-n-12">
+        <div>
+            <ul>
+                <li><a href="#">suscribete</a></li>
+                <li><a href="#">contacto</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header-2 col-n-12">
+        <div class="header-23 col-n-3">
+            <div class="header-23-1 col-n-12">
+                <div><img src="{% static 'img/item.jpg' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="principal col-n-12">
+    <div class="secundario-left col-n-2"></div>
+    <div class="secundario-center col-n-7">
+        <div class="secundario-center-titulo col-n-12">
+            <h1>{{ titular.titulo }}</h1>
+        </div>
+        {% for item in object_list %}
+        <div class="secundario-center-contenedor col-n-12">
+            <div class="contenedor-subtitulo col-n-12"><h2>{{ item.subtitulo }}</h2></div>
+            <div class="contenedor-imagen col-n-12">
+                <div class="cont">
+                    <img src="/static/{{ item.imagen }}">
+                </div>
+            </div>
+            <div class="contenedor-texto col-n-12"><p>{{ item.texto }}</p></div>
+        </div>
+        {% endfor %}
+        <div class="complemento col-n-12"></div>
+    </div>
+    <div class="col-n-3"></div>
+</div>
+{% endblock %}

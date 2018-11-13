@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+<style>
+    .header{
+        background-color: #4285F4;
+        box-shadow: 1px 2px 1px grey;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+    }
+    .header-1{
+        margin: auto;
+        background-color: black;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .header-1 div{
+        margin: auto;
+        float: right;
+    }
+    .header-1 ul{
+        padding: 0px;
+        display: inline;   
+    }
+    .header-1 li{
+        margin: auto;
+        padding: 0px;
+        display: inline;
+    }
+    .header-1 a{
+        margin: auto;
+        padding:0px;
+        display:inline;
+        text-decoration: none;
+        color: whitesmoke;
+    }
+    .header-2{
+        margin:auto;
+        border:none;
+    }
+    .header-23{
+        float: none;
+        margin: auto;
+        border:none;
+    }
+    .header-23 div{
+        margin: auto;
+        border: none;
+        border-radius: 5px;
+    }
+    .header-23 img{
+        margin: auto;
+        padding:0px;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .header-23-1{
+    }
+    .header-23-2{
+        float: right;
+        margin: auto;
+    }
+    .header-23-2 p{
+        display: inline;
+    }
+    .principal{
+        margin: auto;
+        border: none;
+    }
+    .principal-left{
+        margin: auto;
+        border: 0.2px solid rgba(0, 0, 0, 0.205);
+        border-right: none;
+        max-height: 700px;
+        overflow-y:auto;
+        -ms-overflow-style: none;
+    }
+    .principal-left::-webkit-scrollbar{
+        width: 0px;
+    }
+    .principal-left-contenedor{
+        margin: auto;
+        border: none;
+        padding-top: 0px;
+    }
+    .contenedor{
+        padding: 0px;
+        border: 0.5px solid rgba(0, 0, 0, 0.281);
+        border-radius:5px;
+        background-color: rgba(255, 255, 255, 0.493);
+    }
+    .titular-imagen{
+        padding: 0px;
+        border: none;
+        position: relative;
+    }
+    .titular-imagen img{
+        margin: auto;
+        width: 100%;
+        height: auto;
+        padding: 0px;
+        position: relative;
+    }
+    .titular-imagen p{
+        position:absolute;
+        font-size: 20px;
+    }
+    .titular-texto{
+        padding: 0px;
+        border: none;
+        border-top: 0.5px solid rgba(0, 0, 0, 0.281);
+        height: auto;
+    }
+    .titular-texto h2{
+        padding:0px;
+        float: none;
+        margin: auto;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .titular-texto p{
+        white-space: normal;
+        word-break:break-all;
+        text-indent: 50px;
+        text-align: justify;
+        text-justify: auto;
+    }
+    .titular-social{
+        border: 0.5px solid rgba(0, 0, 0, 0.281);
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+    }
+    .center{
+        display:none;
+        text-decoration: none;
+    }
+    .center a{
+        text-decoration: none;
+        color:honeydew;
+        text-shadow: 0.5px 1px gray;
+    }
+    .titular-imagen:hover img{
+        opacity: 0.5;
+    }
+    .titular-imagen:hover .center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+        color: black;
+    }
+    .principal-left-bottom{
+        padding: 0px;
+        border: none;
+        height: 200px;
+    }
+</style>
+{% endblock %}
+{% block js %}
+{% endblock %}
+{% block contenido %}
+<div class=" header col-n-12">
+    <div class="header-1 col-n-12">
+        <div>
+            <ul>
+                <li><a href="#">suscribete</a></li>
+                <li><a href="#">contacto</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header-2 col-n-12">
+        <div class="header-23 col-n-5">
+            <div class="header-23-1 col-n-12"><img src="{% static 'img/item.jpg' %}" alt=""></div>
+        </div>
+    </div>
+</div>
+<div class="principal col-n-12">
+    <div class="principal-left col-n-8">
+        {% for item in object_list %}
+        <div class="principal-left-contenedor col-n-6">
+            <div class="contenedor col-n-12">
+                <div class="titular-imagen col-n-12">
+                    <img src="/static/{{ item.imagen }}/">
+                    <div class="center"><a href="{% url 'publicacion:noticia' item.slug %}">Leer Mas<i class='far fa-share-square' style='font-size:20px,padding-left5px,'></i></a></div> 
+                </div>
+                <div class="titular-texto col-n-12">
+                    <h2>{{ item.titulo }}</h2>
+                    <p>{{ item.texto }}</p>                
+                </div>
+                <div class="titular-social col-n-12">
+                    <button class="chula" style="color:rgba(255, 0, 0, 0.603)"><i class="fas fa-paw"></i></button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="principal-left-bottom col-n-12"></div>
+    </div>
+    <div class="principal-rigth col-n-4">
+        <div class="col-n-12"></div>
+        <div class="col-n-12"></div>
+        <div class="col-n-12">
+            <div class="col-n-6"></div>
+            <div class="col-n-6"></div>
+        </div>
+        <div class="col-n-12"></div>
+    </div>
+</div>
+{% endblock %}

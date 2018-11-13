@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% block title %}<title>Mogwask</title>{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+        <style>
+            body{
+                padding: 0px;
+                margin: 0px;
+                background-color: rgba(255, 255, 255, 0.233);
+            }
+            *{
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            /*
+            body::-webkit-scrollbar{
+                width: 0px;   
+            }*/
+            [class*="col-"] {
+                float: left;
+                margin: 0px;
+                width: 100%;
+                padding: 10px;
+                border: 1px solid black;
+            }
+            @media only screen and (min-width: 320px) {
+                /* For phone: */
+                .col-n-1 {width: 8.33%;}
+                .col-n-2 {width: 16.66%;}
+                .col-n-3 {width: 25%;}
+                .col-n-4 {width: 33.33%;}
+                .col-n-5 {width: 41.66%;}
+                .col-n-6 {width: 50%;}
+                .col-n-7 {width: 58.33%}
+                .col-n-8 {width: 66.66%;}
+                .col-n-9 {width: 75%;}
+                .col-n-10 {width: 83.33%;}
+                .col-n-11 {width: 91.66%;}
+                .col-n-12 {width: 100%;}
+            }
+            @media only screen and (min-width: 425px) {
+                /* For tablets: */
+                .col-m-1 {width: 8.33%;}
+                .col-m-2 {width: 16.66%;}
+                .col-m-3 {width: 25%;}
+                .col-m-4 {width: 33.33%;}
+                .col-m-5 {width: 41.66%;}
+                .col-m-6 {width: 50%;}
+                .col-m-7 {width: 58.33%}
+                .col-m-8 {width: 66.66%;}
+                .col-m-9 {width: 75%;}
+                .col-m-10 {width: 83.33%;}
+                .col-m-11 {width: 91.66%;}
+                .col-m-12 {width: 100%;}
+            }
+            @media only screen and (min-width: 768px){
+                .col-v-1 {width: 8.33%;}
+                .col-v-2 {width: 16.66%;}
+                .col-v-3 {width: 25%;}
+                .col-v-4 {width: 33.33%;}
+                .col-v-5 {width: 41.66%;}
+                .col-v-6 {width: 50%;}
+                .col-v-7 {width: 58.33%;}
+                .col-v-8 {width: 66.66%;}
+                .col-v-9 {width: 75%;}
+                .col-v-10 {width: 83.33%;}
+                .col-v-11 {width: 91.66%;}
+                .col-v-12 {width: 100%;}
+            }
+            @media only screen and (min-width: 1024px) {
+                /* para pc */
+                .col-1 {width: 8.33%;}
+                .col-2 {width: 16.66%;}
+                .col-3 {width: 25%;}
+                .col-4 {width: 33.33%;}
+                .col-5 {width: 41.66%;}
+                .col-6 {width: 50%;}
+                .col-7 {width: 58.33%;}
+                .col-8 {width: 66.66%;}
+                .col-9 {width: 75%;}
+                .col-10 {width: 83.33%;}
+                .col-11 {width: 91.66%;}
+                .col-12 {width: 100%;}
+            }
+            @media only screen and (min-width: 1440px) {
+                /* para pc */
+                .col-p-1 {width: 8.33%;}
+                .col-p-2 {width: 16.66%;}
+                .col-p-3 {width: 25%;}
+                .col-p-4 {width: 33.33%;}
+                .col-p-5 {width: 41.66%;}
+                .col-p-6 {width: 50%;}
+                .col-p-7 {width: 58.33%;}
+                .col-p-8 {width: 66.66%;}
+                .col-p-9 {width: 75%;}
+                .col-p-10 {width: 83.33%;}
+                .col-p-11 {width: 91.66%;}
+                .col-p-12 {width: 100%;}
+            }
+        </style>
+        {% block css %}{% endblock %}
+        {% block js %}{% endblock %}
+    </head>
+    <body>
+        {% block contenido %}
+        {% endblock %}
+    </body>
+</html>
